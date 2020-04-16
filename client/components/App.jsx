@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react"
+
+import Game from "./Game"
 
 const App = () => {
-  return (
-    <h1>React development has begun!</h1>
-  )
+  return <Game />
 }
 
 export default App
