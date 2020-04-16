@@ -1,0 +1,48 @@
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: aquamarine;
+  height: 100vh;
+}
+
+.leftColumn {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  order: 0;
+  width: 50vw;
+  margin-left: 1em;
+}
+
+.rightColumn {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  order: 1;
+  width: 50vw;
+  text-align: right;
+  margin-right: 1em;
+}
+
+.speechBubble {
+  height: 200px;
+  width: 200px;
+  border: black;
+  background-color: white;
+  float: right;
+}
+
+
+.charImg {
+  height: 350px;
+  width: 350px;
+  background-color: tomato;
+}
+
+.buttonDiv {
+  position: absolute;
+  bottom: 2%;
+  margin-left: 45%;
+}
+
+

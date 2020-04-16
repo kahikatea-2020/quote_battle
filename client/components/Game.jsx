@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import '../'
 
 class Game extends Component {
   state = {
@@ -33,7 +34,7 @@ class Game extends Component {
 
   render() {
     return (
-      <>
+      <div className="flexContainer">
         <div className="leftColumn">
           <div className="leftInput">
             <select name="leftCharacter">
@@ -44,13 +45,17 @@ class Game extends Component {
             </select>
             <h1>Score: {this.state.leftScore}</h1>
           </div>
-          <div className="speechBubble" onClick={this.handleLeftClick}>
+          <div className="speechBubble" id="bubbleRight" onClick={this.handleLeftClick}>
             <img alt="speech bubble" />
             <p>speech bubble</p>
           </div>
-          <img alt="Left character image" />
+          <img className="charImg" alt="Left character image" />
+        </div>
+
+        <div className="buttonDiv">
           <button>Generate Quote</button>
         </div>
+        
         <div className="rightColumn">
           <div className="rightInput">
             <select name="rightCharacter">
@@ -65,11 +70,14 @@ class Game extends Component {
             <img alt="speech bubble" />
             <p>speech bubble</p>
           </div>
-          <img alt="Right character image" />
+          {/* <div className="rightImg"> */}
+          <img className="charImg" alt="Right character image" />
+          {/* </div> */}
         </div>
-      </>
+      </div>
     )
   }
 }
+
 
 export default Game
