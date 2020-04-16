@@ -3,38 +3,33 @@ import axios from 'axios'
 const api = axios.create({
   baseURL: "https://api.chucknorris.io/jokes",
   baseURL: "https://api.kanye.rest",
-  baseURL: "https://docs.tronalddump.io"
+  baseURL: "https://docs.tronalddump.io",
+  baseURL: "https://ron-swanson-quotes.herokuapp.com/v2"
 })
 
 
-// Retrieve a random chuck joke in JSON format.
-export const getChuckNorisRandomJoke = () => {
+// Random Chuck Norris Quote
+// JSON.value
+export const getChuckRandomJoke = () => {
   return api.get("/random")
 }
 
-// Retrieve a list of available categories.
-export const getChuckNorisCategories = () => {
-  return api.get("/categories")
-}
-
-// Retrieve a random chuck norris joke from a given category.
-export const getChuckNorisRandomCategory = (category) => {
-  return api.get(`/random?category=${category}`)
-}
-
-// Free text search.
-export const getChuckNorisFreeTextSearch = (query) => {
-  return api.get(`/search?query=${query}`)
-}
-
 // Random Kanye West Quote
-export const getKanyeWestQuote = () => {
+// JSON.quote
+export const getKanyeQuote = () => {
   return api.get('/')
 }
 
-// https://www.tronalddump.io/random/quote
+// Random Donald Trump Quote
+// JSON.value
 export const getTonaldRandomQuote = () => {
   return api.get('/random/quote')
+}
+
+// Random Ron Swanson Quote
+// JSON[0]
+export const getRonRandomQuote = () => {
+  return api.get('/quotes')
 }
 
 export default api

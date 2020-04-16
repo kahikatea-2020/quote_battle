@@ -13,31 +13,59 @@ class Game extends Component {
 
   componentDidMount() {}
 
+  // handleLeftClick () event => {
+  //   if(this.state.quotesGenerated){
+  //     return
+  //   }
+  //   this.setState({
+  //       leftScore: event.target.value
+  //     })
+  // }
+
+  // handleRightClick () event => {
+  //   if(this.state.quotesGenerated){
+  //     return
+  //   }
+  //   this.setState({
+  //       rightScore: event.target.value
+  //     })
+  // }
+
   render() {
     return (
       <>
         <div className="leftColumn">
-          <div>
-            <input>Dropdown of characters</input>
+          <div className="leftInput">
+            <select name="leftCharacter">
+              <option value="chuck">Chuck</option>
+              <option value="ron">Ron Swanson</option>
+              <option value="kanye">Kanye West</option>
+              <option value="donald">Donald Trump</option>
+            </select>
             <h1>Score: {this.state.leftScore}</h1>
           </div>
-          <div className="speechBubble">
-            <img>speech bubble</img>
+          <div className="speechBubble" onClick={this.handleLeftClick}>
+            <img alt="speech bubble" />
             <p>speech bubble</p>
           </div>
-          <img>Left character image</img>
-          <button>(in the middle) Generate Quote</button>
+          <img alt="Left character image" />
+          <button>Generate Quote</button>
         </div>
         <div className="rightColumn">
-          <div>
-            <input>Dropdown of characters</input>
+          <div className="rightInput">
+            <select name="rightCharacter">
+              <option value="chuck">Chuck Norris</option>
+              <option value="ron">Ron Swanson</option>
+              <option value="kanye">Kanye West</option>
+              <option value="donald">Donald Trump</option>
+            </select>
             <h1>Score: {this.state.leftScore}</h1>
           </div>
-          <div className="speechBubble">
-            <img>speech bubble</img>
+          <div className="speechBubble" onClick={this.rightClickHandler}>
+            <img alt="speech bubble" />
             <p>speech bubble</p>
           </div>
-          <img>Right character image</img>
+          <img alt="Right character image" />
         </div>
       </>
     )
