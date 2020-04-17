@@ -141,7 +141,7 @@ class Game extends Component {
               <p>{this.state.leftQuote}</p>
             </div>
             <img
-              src={`left${this.state.leftCharacter}.png`}
+              src={`../../server/public/images/left${this.state.leftCharacter}.png`}
               alt="Left character image"
             />
           </div>
@@ -163,11 +163,14 @@ class Game extends Component {
             <div className="speechBubble" onClick={this.handleRightClick}>
               <img
                 src={`right${this.state.rightCharacter}.png`}
-                alt="right character image"
+                alt="speech bubble"
               />
               <p>{this.state.rightQuote}</p>
             </div>
-            <img alt="Right character image" />
+            <img
+              src={`../../server/public/images/right${this.state.rightCharacter}.png`}
+              alt="Right character image"
+            />
           </div>
         </div>
       </>
