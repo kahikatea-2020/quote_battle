@@ -127,7 +127,7 @@ class Game extends Component {
               </select>
               <h1>Score: {this.state.leftScore}</h1>
             </div>
-            <div class="speech-bubble">
+            <div class="speech-bubble"onClick={this.handleLeftClick}>
               <p><strong>{this.state.leftQuote}</strong></p>
             </div>
             <div className="charImg">
@@ -142,37 +142,29 @@ class Game extends Component {
           <button onClick={this.resetGame}>Reset Game</button>
           </div>
 
-          <img
-            src={`../../server/public/images/left${this.state.leftCharacter}.png`}
-            alt="Left character image"
-          />
+          <div className="rightColumn">
+            <div className="rightInput">
+              <select name="rightCharacter" onChange={this.handleRightChange}>
+                <option value="chuck">Chuck Norris</option>
+                <option value="ron">Ron Swanson</option>
+                <option value="kanye">Kanye West</option>
+                <option value="donald">Donald Trump</option>
+              </select>
+              <h1>Score: {this.state.rightScore}</h1>
+            </div>
+            <div class="speech-bubble" onClick={this.handleRightClick}>
+              <p><strong>{this.state.rightQuote}</strong></p>
+            </div>
+            <div className="charImg">
+              <img
+                src={`./images/right${this.state.rightCharacter}.png`}
+                alt="Right character image"
+              />
+            </div>
+          </div>
         </div>
-
-        <button onClick={() => this.componentDidMount()}>Generate Quote</button>
-        <button onClick={this.resetGame}>Reset Game</button>
-
-        <div className="rightColumn">
-          <div className="rightInput">
-            <select name="rightCharacter" onChange={this.handleRightChange}>
-              <option value="chuck">Chuck Norris</option>
-              <option value="ron">Ron Swanson</option>
-              <option value="kanye">Kanye West</option>
-              <option value="donald">Donald Trump</option>
-            </select>
-            <h1>Score: {this.state.rightScore}</h1>
-          </div>
-          <div className="speechBubble" onClick={this.handleRightClick}>
-            <img alt="speed bubble" />
-            <p>{this.state.rightQuote}</p>
-          </div>
-          <img
-              src={`../../server/public/images/right${this.state.rightCharacter}.png`}
-              alt="right character image"
-            />
-         </div>
       </>
     )
   }
 }
-
 export default Game
