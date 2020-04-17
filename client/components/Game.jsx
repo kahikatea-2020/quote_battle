@@ -112,10 +112,11 @@ class Game extends Component {
       quotesGenerated: false,
     })
   }
-
+  
   render() {
     return (
       <>
+      <img className="logo" src="./images/logo.png" alt="logo"/>
       <div className="flexContainer">
           <div className="leftColumn">
             <div className="leftInput">
@@ -125,7 +126,7 @@ class Game extends Component {
                 <option value="kanye">Kanye West</option>
                 <option value="donald">Donald Trump</option>
               </select>
-              <h1>Score: {this.state.leftScore}</h1>
+              <h2>Score: {this.state.leftScore}</h2>
             </div>
             <div class="speech-bubble"onClick={this.handleLeftClick}>
               <p><strong>{this.state.leftQuote}</strong></p>
@@ -150,7 +151,7 @@ class Game extends Component {
                 <option value="kanye">Kanye West</option>
                 <option value="donald">Donald Trump</option>
               </select>
-              <h1>Score: {this.state.rightScore}</h1>
+              <h2>Score: {this.state.rightScore}</h2>
             </div>
             <div class="speech-bubble" onClick={this.handleRightClick}>
               <p><strong>{this.state.rightQuote}</strong></p>

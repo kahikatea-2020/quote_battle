@@ -6,6 +6,11 @@ body {
   background-color: #ffef00;
 }
 
+.logo {
+  position: absolute;
+  margin-left: 35%;
+}
+
 .leftInput select {
   width: 10em;
   height: 3em;
@@ -29,7 +34,7 @@ body {
   display: flex;
   flex-direction: row;
   font-family: 'IBM Plex Sans', sans-serif;
-  height: 100vh;
+  height: 110vh;
   width: 80vw;
 }
 
