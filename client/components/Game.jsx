@@ -127,7 +127,7 @@ class Game extends Component {
               </select>
               <h1>Score: {this.state.leftScore}</h1>
             </div>
-            <div class="speech-bubble">
+            <div class="speech-bubble"onClick={this.handleLeftClick}>
               <p><strong>{this.state.leftQuote}</strong></p>
             </div>
             <div className="charImg">
@@ -152,7 +152,7 @@ class Game extends Component {
               </select>
               <h1>Score: {this.state.rightScore}</h1>
             </div>
-            <div class="speech-bubble">
+            <div class="speech-bubble" onClick={this.handleRightClick}>
               <p><strong>{this.state.rightQuote}</strong></p>
             </div>
             <div className="charImg">
