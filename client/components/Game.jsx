@@ -16,72 +16,63 @@ class Game extends Component {
     rightCharacter: "chuck",
     quotesGenerated: false,
   }
-
+  
+  
   componentDidMount() {
     this.setState({ leftQuote: "loading...", rightQuote: "loading..." })
-    switch (this.state.leftCharacter) {
-      case "chuck":
-        getChuckRandomJoke().then((res) => {
-          this.setState({
-            leftQuote: res,
-          })
-        })
-        break
-      case "kanye":
-        getKanyeQuote().then((res) => {
-          this.setState({
-            leftQuote: res,
-          })
-        })
-        break
-      case "donald":
-        getTonaldRandomQuote().then((res) => {
-          this.setState({
-            leftQuote: res,
-          })
-        })
-        break
-      case "ron":
-        getRonRandomQuote().then((res) => {
-          this.setState({
-            leftQuote: res,
-          })
-        })
-        break
-    }
+    this.leftApiHandler()
+    this.rightApiHandler()
+    this.setState({ quotesGenerated: true })
+  }
+
+  rightApiHandler = () => {
     switch (this.state.rightCharacter) {
       case "chuck":
         getChuckRandomJoke().then((res) => {
-          this.setState({
-            rightQuote: res,
-          })
+          this.setState({rightQuote: res})
         })
         break
       case "kanye":
         getKanyeQuote().then((res) => {
-          this.setState({
-            rightQuote: res,
-          })
+          this.setState({rightQuote: res})
         })
         break
       case "donald":
         getTonaldRandomQuote().then((res) => {
-          this.setState({
-            rightQuote: res,
-          })
+          this.setState({rightQuote: res})
         })
         break
       case "ron":
         getRonRandomQuote().then((res) => {
-          this.setState({
-            rightQuote: res,
-          })
+          this.setState({rightQuote: res})
         })
         break
     }
-    this.setState({
-      quotesGenerated: true,
-    })
+  }
+
+  leftApiHandler = () => {
+    switch (this.state.leftCharacter) {
+      case "chuck":
+        getChuckRandomJoke().then((res) => {
+          this.setState({leftQuote: res})
+        })
+        break
+      case "kanye":
+        getKanyeQuote().then((res) => {
+          this.setState({leftQuote: res})
+        })
+        break
+      case "donald":
+        getTonaldRandomQuote().then((res) => {
+          this.setState({leftQuote: res})
+        })
+        break
+      case "ron":
+        getRonRandomQuote().then((res) => {
+          this.setState({leftQuote: res})
+        })
+        break
+    }
   }
 
   handleLeftClick = () => {
@@ -140,7 +131,7 @@ class Game extends Component {
             <p>{this.state.leftQuote}</p>
           </div>
           <img
-            src={`left${this.state.leftCharacter}.png`}
+            src={`../../server/public/images/left${this.state.leftCharacter}.png`}
             alt="Left character image"
           />
         </div>
@@ -159,13 +150,14 @@ class Game extends Component {
             <h1>Score: {this.state.rightScore}</h1>
           </div>
           <div className="speechBubble" onClick={this.handleRightClick}>
-            <img
-              src={`right${this.state.rightCharacter}.png`}
-              alt="right character image"
-            />
+            <img alt="speed bubble" />
             <p>{this.state.rightQuote}</p>
           </div>
-          <img alt="Right character image" />
+          <img
+              src={`../../server/public/images/right${this.state.rightCharacter}.png`}
+              alt="right character image"
+            />
+          
         </div>
       </>
     )
