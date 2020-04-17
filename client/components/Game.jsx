@@ -125,47 +125,50 @@ class Game extends Component {
   render() {
     return (
       <>
-        <div className="leftColumn">
-          <div className="leftInput">
-            <select name="leftCharacter" onChange={this.handleLeftChange}>
-              <option value="chuck">Chuck Norris</option>
-              <option value="ron">Ron Swanson</option>
-              <option value="kanye">Kanye West</option>
-              <option value="donald">Donald Trump</option>
-            </select>
-            <h1>Score: {this.state.leftScore}</h1>
-          </div>
-          <div className="speechBubble" onClick={this.handleLeftClick}>
-            <img alt="speech bubble" />
-            <p>{this.state.leftQuote}</p>
-          </div>
-          <img
-            src={`left${this.state.leftCharacter}.png`}
-            alt="Left character image"
-          />
-        </div>
-
-        <button onClick={() => this.componentDidMount()}>Generate Quote</button>
-        <button onClick={this.resetGame}>Reset Game</button>
-
-        <div className="rightColumn">
-          <div className="rightInput">
-            <select name="rightCharacter" onChange={this.handleRightChange}>
-              <option value="chuck">Chuck Norris</option>
-              <option value="ron">Ron Swanson</option>
-              <option value="kanye">Kanye West</option>
-              <option value="donald">Donald Trump</option>
-            </select>
-            <h1>Score: {this.state.rightScore}</h1>
-          </div>
-          <div className="speechBubble" onClick={this.handleRightClick}>
+      <div className="flexContainer">
+          <div className="leftColumn">
+            <div className="leftInput">
+              <select name="leftCharacter" onChange={this.handleLeftChange}>
+                <option value="chuck">Chuck Norris</option>
+                <option value="ron">Ron Swanson</option>
+                <option value="kanye">Kanye West</option>
+                <option value="donald">Donald Trump</option>
+              </select>
+              <h1>Score: {this.state.leftScore}</h1>
+            </div>
+            <div className="speechBubble" onClick={this.handleLeftClick}>
+              <img alt="speech bubble" />
+              <p>{this.state.leftQuote}</p>
+            </div>
             <img
-              src={`right${this.state.rightCharacter}.png`}
-              alt="right character image"
+              src={`left${this.state.leftCharacter}.png`}
+              alt="Left character image"
             />
-            <p>{this.state.rightQuote}</p>
           </div>
-          <img alt="Right character image" />
+          <div className="buttonDiv">
+          <button onClick={() => this.componentDidMount()}>New Quotes</button>
+          <button onClick={this.resetGame}>Reset Game</button>
+          </div>
+
+          <div className="rightColumn">
+            <div className="rightInput">
+              <select name="rightCharacter" onChange={this.handleRightChange}>
+                <option value="chuck">Chuck Norris</option>
+                <option value="ron">Ron Swanson</option>
+                <option value="kanye">Kanye West</option>
+                <option value="donald">Donald Trump</option>
+              </select>
+              <h1>Score: {this.state.rightScore}</h1>
+            </div>
+            <div className="speechBubble" onClick={this.handleRightClick}>
+              <img
+                src={`right${this.state.rightCharacter}.png`}
+                alt="right character image"
+              />
+              <p>{this.state.rightQuote}</p>
+            </div>
+            <img alt="Right character image" />
+          </div>
         </div>
       </>
     )
