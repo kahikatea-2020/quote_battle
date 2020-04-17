@@ -129,7 +129,7 @@ class Game extends Component {
           <div className="leftColumn">
             <div className="leftInput">
               <select name="leftCharacter" onChange={this.handleLeftChange}>
-                <option value="chuck">Chuck Norris</option>
+                <option id value="chuck">Chuck Norris</option>
                 <option value="ron">Ron Swanson</option>
                 <option value="kanye">Kanye West</option>
                 <option value="donald">Donald Trump</option>
