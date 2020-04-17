@@ -16,72 +16,63 @@ class Game extends Component {
     rightCharacter: "chuck",
     quotesGenerated: false,
   }
-
+  
+  
   componentDidMount() {
     this.setState({ leftQuote: "loading...", rightQuote: "loading..." })
-    switch (this.state.leftCharacter) {
-      case "chuck":
-        getChuckRandomJoke().then((res) => {
-          this.setState({
-            leftQuote: res,
-          })
-        })
-        break
-      case "kanye":
-        getKanyeQuote().then((res) => {
-          this.setState({
-            leftQuote: res,
-          })
-        })
-        break
-      case "donald":
-        getTonaldRandomQuote().then((res) => {
-          this.setState({
-            leftQuote: res,
-          })
-        })
-        break
-      case "ron":
-        getRonRandomQuote().then((res) => {
-          this.setState({
-            leftQuote: res,
-          })
-        })
-        break
-    }
+    this.leftApiHandler()
+    this.rightApiHandler()
+    this.setState({ quotesGenerated: true })
+  }
+
+  rightApiHandler = () => {
     switch (this.state.rightCharacter) {
       case "chuck":
         getChuckRandomJoke().then((res) => {
-          this.setState({
-            rightQuote: res,
-          })
+          this.setState({rightQuote: res})
         })
         break
       case "kanye":
         getKanyeQuote().then((res) => {
-          this.setState({
-            rightQuote: res,
-          })
+          this.setState({rightQuote: res})
         })
         break
       case "donald":
         getTonaldRandomQuote().then((res) => {
-          this.setState({
-            rightQuote: res,
-          })
+          this.setState({rightQuote: res})
         })
         break
       case "ron":
         getRonRandomQuote().then((res) => {
-          this.setState({
-            rightQuote: res,
-          })
+          this.setState({rightQuote: res})
         })
         break
     }
-    this.setState({
-      quotesGenerated: true,
-    })
+  }
+
+  leftApiHandler = () => {
+    switch (this.state.leftCharacter) {
+      case "chuck":
+        getChuckRandomJoke().then((res) => {
+          this.setState({leftQuote: res})
+        })
+        break
+      case "kanye":
+        getKanyeQuote().then((res) => {
+          this.setState({leftQuote: res})
+        })
+        break
+      case "donald":
+        getTonaldRandomQuote().then((res) => {
+          this.setState({leftQuote: res})
+        })
+        break
+      case "ron":
+        getRonRandomQuote().then((res) => {
+          this.setState({leftQuote: res})
+        })
+        break
+    }
   }
 
   handleLeftClick = () => {
@@ -151,27 +142,34 @@ class Game extends Component {
           <button onClick={this.resetGame}>Reset Game</button>
           </div>
 
-          <div className="rightColumn">
-            <div className="rightInput">
-              <select name="rightCharacter" onChange={this.handleRightChange}>
-                <option value="chuck">Chuck Norris</option>
-                <option value="ron">Ron Swanson</option>
-                <option value="kanye">Kanye West</option>
-                <option value="donald">Donald Trump</option>
-              </select>
-              <h1>Score: {this.state.rightScore}</h1>
-            </div>
-            <div class="speech-bubble">
-              <p><strong>{this.state.rightQuote}</strong></p>
-            </div>
-            <div className="charImg">
-              <img
-                src={`./images/right${this.state.rightCharacter}.png`}
-                alt="Right character image"
-              />
-            </div>
-          </div>
+          <img
+            src={`../../server/public/images/left${this.state.leftCharacter}.png`}
+            alt="Left character image"
+          />
         </div>
+
+        <button onClick={() => this.componentDidMount()}>Generate Quote</button>
+        <button onClick={this.resetGame}>Reset Game</button>
+
+        <div className="rightColumn">
+          <div className="rightInput">
+            <select name="rightCharacter" onChange={this.handleRightChange}>
+              <option value="chuck">Chuck Norris</option>
+              <option value="ron">Ron Swanson</option>
+              <option value="kanye">Kanye West</option>
+              <option value="donald">Donald Trump</option>
+            </select>
+            <h1>Score: {this.state.rightScore}</h1>
+          </div>
+          <div className="speechBubble" onClick={this.handleRightClick}>
+            <img alt="speed bubble" />
+            <p>{this.state.rightQuote}</p>
+          </div>
+          <img
+              src={`../../server/public/images/right${this.state.rightCharacter}.png`}
+              alt="right character image"
+            />
+         </div>
       </>
     )
   }
