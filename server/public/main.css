@@ -17,6 +17,7 @@
 .rightColumn {
   display: flex;
   justify-content: space-around;
+  align-items: flex-end;
   flex-direction: column;
   order: 1;
   width: 50vw;
@@ -32,6 +33,10 @@
   float: right;
 }
 
+.colContainer {
+  display: flex;
+  flex-direction: row-reverse;
+}
 
 .charImg {
   height: 350px;
@@ -44,5 +49,7 @@
   bottom: 2%;
   margin-left: 45%;
 }
-
+.rightImg {
+  order: 0;
+}
 

@@ -66,10 +66,13 @@ class Game extends Component {
             </select>
             <h1>Score: {this.state.leftScore}</h1>
           </div>
+          {/* <div className="rightImg"> */}
           <div className="speechBubble" onClick={this.rightClickHandler}>
             <img alt="speech bubble" />
             <p>speech bubble</p>
           </div>
+          {/* </div> */}
+        
           {/* <div className="rightImg"> */}
           <img className="charImg" alt="Right character image" />
           {/* </div> */}
